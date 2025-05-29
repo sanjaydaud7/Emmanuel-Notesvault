@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note Upload Form</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Firebase SDKs -->
+<script type="module">
+  // Import Firebase modules
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
+  import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-storage.js";
+
+  // Your Firebase config (replace with yours)
+  const firebaseConfig = {
+    apiKey: "AIzaSyB-rbI3puRs6Q52LjwLU3hz80CpCxh-T9w",
+    authDomain: "notevault-464dd.firebaseapp.com",
+    projectId: "notevault-464dd",
+    storageBucket: "notevault-464dd.firebasestorage.app",
+    messagingSenderId: "684610689473",
+    appId: "1:684610689473:web:e992b266c27c33a0acf740"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const storage = getStorage(app);
+
+  // Handle form submission
+  document.getElementById("note-upload-form").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const title = document.getElementById("title").value;
+    const subject = document.getElementById("subject").value;
+    const content = document.getElementById("content").value;
+    const tags = document.getElementById("tags").value.split(",").map(tag => tag.trim());
+    const file = document.getElementById("file").files[0];
+
+    let fileURL = "";
+
+    if (file) {
+      const fileRef = ref(storage, `notes/${Date.now()}_${file.name}`);
+      await uploadBytes(fileRef, file);
+      fileURL = await getDownloadURL(fileRef);
+    }
+
+    await addDoc(collection(db, "notes"), {
+      title,
+      subject,
+      content,
+      tags,
+      fileURL,
+      timestamp: new Date()
+    });
+
+    // Show confirmation
+    document.getElementById("toast").style.display = "block";
+    setTimeout(() => {
+      document.getElementById("toast").style.display = "none";
+      document.getElementById("note-upload-form").reset();
+    }, 3000);
+  });
+</script>
+
+</head>
+<body>
+<div class="container">
+        <!-- Navbar -->
+        <header class="navbar">
+            <div class="nav-container">
+                <a href="/" class="logo">
+                    <span class="logo-icon">📓</span>
+                    <span>Emmanuel NoteVault</span>
+                </a>
+                <nav class="nav-links">
+                    <a href="index.html" class="nav-link">
+                        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        </svg>
+                        Home
+                    </a>
+                    <a href="NoteSearchFilter.html" class="nav-link active">
+                        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                        Browse Notes
+                    </a>
+                    <a href="NoteUploadForm.html" class="nav-link">
+                        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                        </svg>
+                        Upload Note
+                    </a>
+                </nav>
+                <div class="auth-links">
+                    <a href="./loginform.html" class="auth-btn auth-btn-outline">
+                        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                        </svg>
+                        Login
+                    </a>
+                    <a href="./signupform.html" class="auth-btn auth-btn-primary">
+                        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                        </svg>
+                        Sign Up
+                    </a>
+                </div>
+            </div>
+        </header>
+
+
+        
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">
+                <i class="fas fa-file-upload card-icon"></i>
+                Upload Your Note
+            </h2>
+            <p class="card-description">Share your knowledge or keep your notes organized. You can enhance them with AI later.</p>
+        </div>
+        <div class="card-content">
+            <form id="note-upload-form" class="form">
+                <div class="form-item">
+                    <label for="title" class="form-label">
+                        <i class="fas fa-font label-icon"></i>
+                        Note Title
+                    </label>
+                    <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    placeholder="e.g., Chapter 1: Introduction to Algebra"
+                    class="form-input"
+                    >
+                    <p class="form-error" id="title-error"></p>
+                </div>
+                
+                <div class="form-item">
+                    <label for="subject" class="form-label">
+                        <i class="fas fa-book label-icon"></i>
+                        Subject
+                    </label>
+                    <select id="subject" name="subject" class="form-select">
+                        <option value="" disabled selected>Select a subject</option>
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="Physics">Physics</option>
+                        <option value="Chemistry">Chemistry</option>
+                        <option value="Biology">Biology</option>
+                    </select>
+                    <p class="form-error" id="subject-error"></p>
+                </div>
+                
+                <div class="form-item">
+                    <label for="content" class="form-label">
+                        <i class="fas fa-clipboard label-icon"></i>
+                        Note Content
+                    </label>
+                    <textarea
+                        id="content"
+                        name="content"
+                        placeholder="Paste or type your note content here..."
+                        class="form-textarea"
+                        ></textarea>
+                        <p class="form-description">This content will be used for AI enhancement.</p>
+                        <p class="form-error" id="content-error"></p>
+                </div>
+
+                <div class="form-item">
+                    <label for="tags" class="form-label">
+                        <i class="fas fa-tags label-icon"></i>
+                        Tags (Optional)
+                    </label>
+                    <input
+                    type="text"
+                        id="tags"
+                        name="tags"
+                        placeholder="e.g., algebra, basics, chapter1 (comma-separated)"
+                        class="form-input"
+                    >
+                    <p class="form-description">Comma-separated tags to help categorize your note.</p>
+                    <p class="form-error" id="tags-error"></p>
+                </div>
+
+                <div class="form-item">
+                    <label for="file" class="form-label">
+                        <i class="fas fa-file-upload label-icon"></i>
+                        Upload File (Optional)
+                    </label>
+                    <input type="file" id="file" name="file" class="form-input">
+                    <p class="form-description">Upload a PDF, DOCX, or image file (max 5MB).</p>
+                    <p class="form-error" id="file-error"></p>
+                </div>
+
+                <button type="submit" class="form-button">Upload Note</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <h3 class="toast-title">Note Submitted</h3>
+            <p class="toast-description">Note upload functionality is not yet implemented. File handling requires backend integration.</p>
+        </div>
+    </div>
+
+</div>
+    <script src="./js/script.js"></script>
+    <script src="./js/uploadnotes.js"></script>
+</body>
+</html>

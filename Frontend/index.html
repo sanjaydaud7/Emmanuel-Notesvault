@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>NoteVault - Your Study Notes Hub</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/responsive.css">
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="container">
+            <!-- Navbar -->
+            <header class="navbar">
+                <div class="nav-container">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon">📓</span>
+                        <span>Emmanuel NoteVault</span>
+                    </a>
+                    <nav class="nav-links">
+                        <a href="/" class="nav-link active">
+                            <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                            </svg>
+                            Home
+                        </a>
+                        <a href="NoteSearchFilter.html" class="nav-link">
+                            <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                            Browse Notes
+                        </a>
+                        <a href="NoteUploadForm.html" class="nav-link">
+                            <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                            </svg>
+                            Upload Note
+                        </a>
+                    </nav>
+                    <div class="auth-links">
+                        <a href="loginform.html" class="auth-btn auth-btn-outline">
+                            <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                            </svg>
+                            Login
+                        </a>
+                        <a href="signupform.html" class="auth-btn auth-btn-primary">
+                            <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                            </svg>
+                            Sign Up
+                        </a>
+                        <!-- <button class="theme-toggle" aria-label="Toggle theme">
+                            <i class="fas fa-moon"></i>
+                        </button> -->
+                    </div>
+                </div>
+            </header>
+
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>Welcome to <span class="highlight">NoteVault</span></h1>
+                    <p>Your central hub for uploading, discovering, and enhancing study notes.<br>Leverage AI to make your notes clearer and more comprehensive.</p>
+                    <div class="buttons">
+                        <a href="NoteSearchFilter.html" class="btn btn-primary">
+                            Browse Notes
+                            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                        </a>
+                        <a href="NoteUploadForm.html" class="btn btn-secondary">
+                            Upload Your Notes
+                            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="image-wrapper">
+                        <img src="./images/ss.png" alt="Abstract illustration of notes and learning" class="hero-image">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="features">
+                <div class="section-header">
+                    <h2>Powerful Features for Students</h2>
+                    <p>Everything you need to excel in your studies.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="icon-circle">
+                            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="32" height="32">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                            </svg>
+                        </div>
+                        <h3>Easy Note Uploads</h3>
+                        <p>Quickly upload your notes in various formats and share them with others .</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon-circle">
+                            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="32" height="32">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </div>
+                        <h3>Smart Search & Filter</h3>
+                        <p>Find the exact notes you need with powerful search and filtering by subject, tags, or keywords.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon-circle">
+                            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="32" height="32">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <h3>AI Note Enhancer</h3>
+                        <p>Improve clarity and completeness of your notes with our intelligent AI-powered suggestions.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Call to Action Section -->
+            <section class="cta">
+                <h2>Ready to Revolutionize Your Study Habits?</h2>
+                <p>Join NoteVault today and take your note-taking to the next level.</p>
+                <a href="./signupform.html" class="btn btn-primary">
+                    Get Started for Free
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                </a>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="footer-content">
+                    © 2025 NoteVault. All rights reserved.
+                </div>
+            </footer>
+        </div>
+
+        <script src="./js/script.js"></script>
+    </body>
+</html>

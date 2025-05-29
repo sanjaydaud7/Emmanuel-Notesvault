@@ -1,0 +1,227 @@
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #1e1e2e;
+        --foreground: #F5F5F5;
+        --card: #2e2e3e;
+        --card-foreground: #F5F5F5;
+        --primary: #a78bfa;
+        --primary-foreground: #F8FAFC;
+        --secondary: #2e2e4e;
+        --secondary-foreground: #F5F5F5;
+        --muted: #2e2e4e;
+        --muted-foreground: #9CA3AF;
+        --accent: #6b9bff;
+        --accent-foreground: #F8FAFC;
+        --border: #3e3e5e;
+        --input: #2e2e3e;
+        --ring: #5e8bff;
+    }
+}
+
+/* Responsive styles */
+
+/* Navbar */
+@media (min-width: 640px) {
+    .nav-container {
+        padding: 0 1.5rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .nav-links {
+        display: flex;
+    }
+
+    .auth-links {
+        display: flex;
+    }
+}
+
+@media (min-width: 1024px) {
+    .nav-container {
+        padding: 0 2rem;
+    }
+}
+
+/* Hero Section */
+@media (min-width: 640px) {
+    .hero h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .hero {
+        padding: 6rem 1rem;
+    }
+
+    .hero h1 {
+        font-size: 3.75rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero {
+        padding: 8rem 1rem;
+    }
+}
+
+/* Features Section */
+@media (min-width: 640px) {
+    .section-header h2 {
+        font-size: 2.25rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .features {
+        padding: 6rem 1rem;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Call to Action Section */
+@media (min-width: 640px) {
+    .cta h2 {
+        font-size: 2.25rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .cta {
+        padding: 6rem 1rem;
+    }
+}
+
+/* Footer */
+@media (min-width: 640px) {
+    .footer-content {
+        padding: 1.5rem 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .footer-content {
+        padding: 1.5rem 2rem;
+    }
+}
+
+/* * Login Form Section  */
+@media (min-width: 640px) {
+    .login-section {
+        padding: 3rem 1rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .login-section {
+        padding: 4rem 1rem;
+    }
+}
+
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #1e1e2e;
+        --foreground: #F5F5F5;
+        --card: #2e2e3e;
+        --card-foreground: #F5F5F5;
+        --primary: #a78bfa;
+        --primary-foreground: #F8FAFC;
+        --secondary: #2e2e4e;
+        --secondary-foreground: #F5F5F5;
+        --muted: #2e2e4e;
+        --muted-foreground: #9CA3AF;
+        --accent: #6b9bff;
+        --accent-foreground: #F8FAFC;
+        --border: #3e3e5e;
+        --input: #2e2e3e;
+        --ring: #5e8bff;
+    }
+}
+
+/* Responsive styles */
+
+/* Navbar */
+@media (min-width: 640px) {
+    .nav-container {
+        padding: 0 1.5rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .nav-links {
+        display: flex;
+    }
+
+    .auth-links {
+        display: flex;
+    }
+}
+
+@media (min-width: 1024px) {
+    .nav-container {
+        padding: 0 2rem;
+    }
+}
+
+/* Signup Form Section */
+@media (min-width: 640px) {
+    .signup-section {
+        padding: 3rem 1rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .signup-section {
+        padding: 4rem 1rem;
+    }
+}
+/* Search Filter Section */
+@media (min-width: 768px) {
+    .search-filter-grid {
+        grid-template-columns: 2fr 1fr;
+    }
+
+    .search-input-wrapper {
+        grid-column: span 2;
+    }
+
+    .subject-filter-wrapper {
+        grid-column: span 1;
+    }
+
+    .submit-button {
+        width: auto;
+    }
+}
+/* Note Cards Section */
+@media (min-width: 640px) {
+    .note-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .note-cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Footer */
+@media (min-width: 640px) {
+    .footer-content {
+        padding: 1.5rem 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .footer-content {
+        padding: 1.5rem 2rem;
+    }
+}
